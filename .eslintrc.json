@@ -15,5 +15,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-tabs": ["error", { "allowIndentationTabs": true }],
+        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
     }
 }
