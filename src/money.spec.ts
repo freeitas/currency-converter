@@ -1,4 +1,4 @@
-import { Money, Dollar, Euro } from './money'
+import { Money, Euro } from './money'
 
 describe('Money', () => {
   it('should correctly handle dollar multiplication', () => {
@@ -16,8 +16,13 @@ describe('Money', () => {
   it('should correctly handle money equality', () => {
     expect(Money.dollar(5).equals(Money.dollar(5))).toBeTruthy()
     expect(Money.dollar(5).equals(Money.dollar(6))).toBeFalsy()
-    expect(new Euro(5).equals(new Euro(5))).toBeTruthy()
-    expect(new Euro(5).equals(new Euro(6))).toBeFalsy()
-    expect(new Euro(5).equals(new Dollar(5))).toBeFalsy()
+    expect(Money.euro(5).equals(Money.euro(5))).toBeTruthy()
+    expect(Money.euro(5).equals(Money.euro(6))).toBeFalsy()
+    expect(Money.euro(5).equals(Money.dollar(5))).toBeFalsy()
+  })
+
+  it('should correctly handle currencies', () => {
+    expect(Money.dollar(1).currency()).toEqual('USD')
+    expect(Money.euro(1).currency()).toEqual('EUR')
   })
 })
